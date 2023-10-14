@@ -1,0 +1,242 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+.logo{
+    width:4%;
+    height: 5%;
+}
+
+.fxit{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    backdrop-filter: blur(5px);
+    background-color: rgba(182, 182, 182, 0.6);
+    z-index: 100;
+}
+
+
+header{
+    height: 70vh;
+    background:url("./images/headerback.jpeg");
+    background-size: cover;
+    background-position: center center;
+}
+
+.nav-link{
+    color: #fff;
+}
+.card {
+    position: relative;
+    width: 320px;
+    height: 320px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+}
+
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: opacity 0.3s;
+}
+
+.overlay .text .mediname{
+    color: #635050;
+    font-family: "Merriweather Sans";
+    text-transform: uppercase;
+}
+
+.overlay .text .fdoc{
+    color: #635050;
+    text-align: center;
+    overflow: hidden;
+    font-family: "Merriweather Sans";
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    font-weight: 1000;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card:hover .overlay {
+    opacity: 1;
+}
+
+
+
+.yesyesyes {
+    background-color: rgb(255, 255, 255);
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    box-sizing: border-box;
+    color: rgb(8, 8, 8);
+    display: block;
+    height: auto;
+    object-fit: contain;
+    overflow-clip-margin: content-box;
+}
+
+.col-md-6 {
+    /* Center the picture in the column */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  
+.col-md-6 picture {
+    /* Remove the default padding from the picture element */
+    padding: 0;
+}
+  
+.col-md-6 img {
+    /* Set the width and height of the image to 100% */
+    width: 100%;
+    height:640px;
+    
+}
+
+
+.fifthchild{
+    height: 100%;
+    width: 500px;
+    
+}
+
+.yesyesyes .row .col-md-6 .text .title-text{
+    font-family: " mayo-display, Georgia, serif ";
+    font-size: 2.7rem;
+    color:rgb(8, 8, 8);
+    font-weight: 700;
+}
+
+.yesyesyes .row .col-md-6 .text p b{
+    font-family: "Mayo-sans";
+    font-size: 1.5rem;
+    font-weight: 600;
+    color:rgb(8, 8, 8);
+}
+
+.normal-text{
+    font-family: "Merriweather Sans";
+    font-size: 1.5rem;
+    color:rgb(8, 8, 8);
+} 
+
+
+
+/* CSS for Doctors Page */
+.cardy {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+.cardy .card-body {
+    padding: 20px;
+}
+
+.cardy .image img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.cardy h5.card-title {
+    font-size: 1.5rem;
+    color: #333;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.cardy p.card-text {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.cardy a.view_schedule {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.cardy a.view_schedule:hover {
+    text-decoration: underline;
+}
+
+.cardy .text-center.align-self-end-sm button.set_appointment {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.cardy .text-center.align-self-end-sm button.set_appointment:hover {
+    background-color: #0056b3;
+}
+
+/* CSS for Profile Page */
+.cardyy {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+.cardyy .card-header .ctitle {
+    font-size: 1.5rem;
+    color: #333;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+
+.cardyy .card-body {
+    padding: 20px;
+}
+
+
+.cardyy a.btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.cardyy a.btn:hover {
+    background-color: #0056b3;
+}
+
