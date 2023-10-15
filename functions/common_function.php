@@ -74,7 +74,7 @@ function get_unique_doctors(){
     if ($num_of_rows==0) {
        echo "<h2 class='text-center'><b>No Doctor's for this specialty</b></h2>";
     }else {
-        echo "<h2 class='text-center'><b>Doctor's who are in titled as <?php echo $s ?></b></h2>
+        echo "<h2 class='text-center'><b>Doctor's who specialize in Bahchoy</b></h2>
         <form class='d-flex' role='search' action='' method='GET'>
             <input class='form-control me-2' type='search' placeholder='Search' aria-label='Search'>
             <input type='submit' value='search' class='btn btn-outline-success'>
@@ -117,45 +117,50 @@ function get_unique_doctors(){
 }
 }
 
-function search_doctor(){
-    if (isset($_GET['search_doc'])) {
-        $search_data_value=$_GET['search_data'];
-    $searchQuery = "SELECT * FROM `doctors_list` WHERE doc_name like '%$search_data_value%'";
-    $queryResult = mysqli_query($conn,  $searchQuery);
+// function search_doctor(){
+//     if (isset($_GET['search_doc'])) {
+//         $search_data_value=$_GET['search_data'];
+//     $searchQuery = "SELECT * FROM `doctors_list` WHERE doc_name like '%$search_data_value%'";
+//     $queryResult = mysqli_query($conn,  $searchQuery);
 
-    while ($row = mysqli_fetch_assoc($queryResult)) {
-        $doctorName = $row['doc_name'];
-        $doctorPrefix = $row['doc_prefix'];
-        $doctorEmail = $row['doc_email'];
-        $clinicAddress = $row['clinic_address'];
-        $contactNumber = $row['doc_contact'];
-        $doctorImage = $row['doc_img'];
-        $specialty_id=$row['specialty_id'];
-        $specialty_name = getSpecialtyName($conn, $specialty_id);
+//     while ($row = mysqli_fetch_assoc($queryResult)) {
+//         $doctorName = $row['doc_name'];
+//         $doctorPrefix = $row['doc_prefix'];
+//         $doctorEmail = $row['doc_email'];
+//         $clinicAddress = $row['clinic_address'];
+//         $contactNumber = $row['doc_contact'];
+//         $doctorImage = $row['doc_img'];
+//         $specialty_id=$row['specialty_id'];
+//         $specialty_name = getSpecialtyName($conn, $specialty_id);
         
 
-        echo '<div class="cardy mb-4">
-                    <div class="card-body">
-                        <div class="row align-items-center">
-                            <div class="col-md-3 image">
-                                <img src="./assets/img/' . $doctorImage . '" alt="' . $doctorName . '" class="table_img">
-                            </div>
-                            <div class="col-md-6">
-                                <h5 class="card-title">Dr. ' . $doctorName . ', ' . $doctorPrefix . '</h5>
-                                <p class="card-text">Email: ' . $doctorEmail . '</p>
-                                <p class="card-text">Clinic Address: ' . $clinicAddress . '</p>
-                                <p class="card-text">Contact #: ' . $contactNumber . '</p>
-                                <p class="card-text">Specialty: ' . $specialty_name . '</p>
-                                <p class="card-text"><a href="javascript:void(0)" class="view_schedule" data-id="' . $row['doc_id'] . '" data-name="Dr. ' . $doctorName . ', ' . $doctorPrefix . '"><i class="fa fa-calendar"></i> Schedule</a></p>
-                            </div>
-                            <div class="col-md-3 text-center align-self-end-sm">
-                                <button class="btn-outline-primary btn mb-4 set_appointment" type="button" data-id="' . $row['doc_id'] . '" data-name="' . $doctorName . '" data-contact="' . $contactNumber . '" data-address="' . $clinicAddress . '">Set appointment</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>';
-    }
-}
+//         echo '<div class="cardy mb-4">
+//                     <div class="card-body">
+//                         <div class="row align-items-center">
+//                             <div class="col-md-3 image">
+//                                 <img src="./assets/img/' . $doctorImage . '" alt="' . $doctorName . '" class="table_img">
+//                             </div>
+//                             <div class="col-md-6">
+//                                 <h5 class="card-title">Dr. ' . $doctorName . ', ' . $doctorPrefix . '</h5>
+//                                 <p class="card-text">Email: ' . $doctorEmail . '</p>
+//                                 <p class="card-text">Clinic Address: ' . $clinicAddress . '</p>
+//                                 <p class="card-text">Contact #: ' . $contactNumber . '</p>
+//                                 <p class="card-text">Specialty: ' . $specialty_name . '</p>
+//                                 <p class="card-text"><a href="javascript:void(0)" class="view_schedule" data-id="' . $row['doc_id'] . '" data-name="Dr. ' . $doctorName . ', ' . $doctorPrefix . '"><i class="fa fa-calendar"></i> Schedule</a></p>
+//                             </div>
+//                             <div class="col-md-3 text-center align-self-end-sm">
+//                                 <button class="btn-outline-primary btn mb-4 set_appointment" type="button" data-id="' . $row['doc_id'] . '" data-name="' . $doctorName . '" data-contact="' . $contactNumber . '" data-address="' . $clinicAddress . '">Set appointment</button>
+//                             </div>
+//                         </div>
+//                     </div>
+//                 </div>';
+//     }
+// }
+// }
+//get patient details
+function get_patient_details(){
+    global $conn;
+    
 }
 ?>
 <script>
@@ -164,9 +169,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
     appointmentButtons.forEach(function(button) {
         button.addEventListener("click", function() {
-            window.location.href = button.getAttribute("data-id") !== null && !<?php echo isset($_SESSION['patient_email_address']) ? 'true' : 'false'; ?>
-                ? 'patient_login.php'
-                : 'set_appointment.php?doc_id=' + button.getAttribute("data-id");
+            if (!<?php echo isset($_SESSION['patient_email_address']) ? 'true' : 'false'; ?>) {
+                window.location.href = 'patient_login.php';
+            } else {
+                // Get data attributes from the button
+                const docId = button.getAttribute("data-id");
+                const docName = button.getAttribute("data-name");
+                const docContact = button.getAttribute("data-contact");
+                const docAddress = button.getAttribute("data-address");
+
+                // Construct the URL with doc_id and doc_name parameters
+                window.location.href = 'set_appointment.php?doc_id=' + docId + '&doc_name=' + docName;
+            }
         });
     });
 });

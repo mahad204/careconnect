@@ -84,12 +84,12 @@ header{
     color: #fff;
 }
 
-.wrapper .main_content{
+.main_content{
     width:100%;
-    margin-left:250px
+    
 }
 
-.wrapper .main_content .header{
+.main_content .header{
     padding:20px;
     background: #fff ;
     color: #717171;

@@ -7,7 +7,6 @@ include ('functions/common_function.php')
     <div class="container">
         <hr class="divider">
         <?php
-            search_doctor();
             get_unique_doctors();
         ?>
          <!--  -->

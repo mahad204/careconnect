@@ -3,6 +3,13 @@ session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 include('./includes/db_connect.php');
+if (isset($_GET['doc_id']) && isset($_GET['doc_name'])) {
+    $docId = $_GET['doc_id'];
+    $doctorName = $_GET['doc_name'];
+    // You have the doctor's name and ID, which you can use in the form.
+} else {
+   echo "Error";
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,7 +49,7 @@ include('./includes/db_connect.php');
         <input type="hidden" name="doctor_name" value="<?php echo $doctorName; ?>">
         <div class="mb-3">
             <label for="doctor_name" class="form-label">Doctor Name: </label>
-            <h5></h5>
+            <h5><?php echo $doctorName?></h5>
         </div>
 
         <div class="mb-3">

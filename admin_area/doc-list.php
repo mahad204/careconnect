@@ -53,7 +53,7 @@ if (isset($_POST['insert_doctor'])) {
           } else {
               echo "<script> alert('Error: " . mysqli_error($conn) . "')</script>";
           }
-    }
+        }
   }
 }
 }
