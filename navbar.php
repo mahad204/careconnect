@@ -49,7 +49,7 @@ session_start();
                   <a class='nav-link' href=''>Welcome ".$_SESSION['patient_name']."</a>
               </li>
               <li class='nav-item'>
-                  <a class='nav-link' href='dashboard.php'>Profile</a>
+                  <a class='nav-link' href='profile.php'>Profile</a>
               </li>";
               }
             if(!isset($_SESSION['patient_email_address'])){

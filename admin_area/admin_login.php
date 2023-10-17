@@ -50,6 +50,7 @@ if (isset($_POST['admin_login'])) {
     if ($number>0) {
         $_SESSION['admin_email_address']=$admin_email;
         $_SESSION['admin_name'] = $row_data['admin_name'];
+        $_SESSION['admin_password'] = $row_data['admin_password'];
         $stored_password = $row_data['admin_password'];
         if ($admin_password == $stored_password) {
             // echo "<script>alert('Login successful')</script>";

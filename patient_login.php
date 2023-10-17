@@ -58,7 +58,6 @@ if (isset($_POST['user_login'])) {
         $_SESSION['patient_password']=$row_data['patient_password'];
         $_SESSION['patient_birth']=$row_data['patient_date_of_birth'];
         $_SESSION['patient_maritial']=$row_data['patient_maritial_status'];
-        var_dump($_SESSION);
         if (password_verify($user_password, $row_data['patient_password'])) {
             // echo "<script>alert('Login successful')</script>";
             if ($number==1) {

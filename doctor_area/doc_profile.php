@@ -1,5 +1,4 @@
 <?php
-session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 include('../includes/db_connect.php');
@@ -37,10 +36,11 @@ background: #f3f5f9;">
                         <div class="row">
                             <div class="col-md-6 ctitle">Profile Details</div>
                             <div class="col-md-6 text-right">
-                                <a href="profile.php?edit_account" class="btn btn-secondary btn-sm">Edit</a>
+                                <a href="editdoc_acc.php" class="btn btn-secondary btn-sm">Edit</a>
                             </div>
                         </div>
                     </div>
+                    
                     <div class="card-body">
                         <table class="table table-stripped">
                             <tbody>
@@ -62,10 +62,12 @@ background: #f3f5f9;">
                                         <?php echo isset($_SESSION['doc_password']) ? $_SESSION['doc_password'] : ''; ?>
                                     </td>
                                 </tr>
-                                <th class="text-right">Clinic Address</th>
-                                <td>
-                                    <?php echo isset($_SESSION['clinic_address']) ? $_SESSION['clinic_address'] : 'N/A'; ?>
-                                </td>
+                                <tr>
+                                    <th class="text-right">Clinic Address</th>
+                                    <td>
+                                        <?php echo isset($_SESSION['clinic_address']) ? $_SESSION['clinic_address'] : 'N/A'; ?>
+                                    </td>
+                                </tr>
 
                                 <tr>
                                     <th class="text-right">Contactno</th>

@@ -30,7 +30,7 @@ if (isset($_POST['insert_doctor'])) {
     if (!in_array($ImageExtension,$validImageExtension )) {
       echo "<script> alert('Invalid Image Extension)</script>";
     }
-    elseif ($fileSIze > 5000000) {
+    elseif ($fileSIze > 10000000) {
       echo "<script> alert('Image Size Is Too Large)</script>";
 
     }

@@ -2,9 +2,7 @@
 session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-// Include the database connection file
 include 'includes/db_connect.php';
-// Check if the user is logged in
 if (!isset($_SESSION['patient_email_address'])) {
     header('Location: patient_login.php');
     exit();
@@ -53,16 +51,12 @@ if (isset($_POST['save_changes'])) {
                     WHERE patient_email_address = '$patient_email'";
 
     if (mysqli_query($conn, $updateQuery)) {
-        // Data in the database has been updated successfully
-        // You can redirect the user to their profile page with a success message
         echo "worked";
         header('Location: profile.php?success=1');
         exit();
     } else {
-        // Handle the case where the database update fails
-        // You can redirect the user to their profile page with an error message
         echo "error";
-        // header('Location: profile.php?error=1');
+        header('Location: profile.php?error=1');
         exit();
     }
 }
@@ -108,7 +102,7 @@ background: #f3f5f9;">
                         </div>
                         <div class="mb-3">
                             <label for="patient_email" class="form-label">Patient Email</label>
-                            <input type="text" class="form-control" name="patient_email" value="<?php echo $_SESSION['patient_email_address']; ?>">
+                            <input type="email" class="form-control" name="patient_email" value="<?php echo $_SESSION['patient_email_address']; ?>">
                         </div>
                         <div class="mb-3">
                             <label for="patient_password" class="form-label">Password</label>

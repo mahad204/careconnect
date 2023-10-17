@@ -47,7 +47,7 @@ background: #f3f5f9;">
               <a class='nav-link' href='doctors.php'>Book Appointment</a>
             </li>
             <li class='nav-item'>
-              <a class='nav-link' href=''>My Appointments</a>
+              <a class='nav-link' href='my_appointment.php'>My Appointments</a>
             </li>
           </ul>
           <ul class="navbar-nav ml-auto">
@@ -151,6 +151,7 @@ background: #f3f5f9;">
 
       }
       ?>
+    </div>
   </div>
   <!-- Bootstrap js link-->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"

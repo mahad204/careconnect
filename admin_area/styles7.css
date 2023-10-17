@@ -20,6 +20,7 @@ body{
 }
 header{
     height: 9.3vh;
+    padding: 1rem 0;
 }
 .admin-logo span {
     margin: auto;
@@ -54,12 +55,12 @@ header{
     width: 250px;
     height:100% ;
     background:#4b4276;
-    padding: 30px 0;
+    padding: 2rem 0;
 }
 
 .wrapper .sidebar ul li{
     list-style: none;
-    padding: 15px;
+    padding: 1rem;
     border-bottom:1px solid rgba(0,0,0,0.05);
     border-top:1px solid rgba(225,225,225,0.05)
 }
@@ -92,7 +93,7 @@ header{
 }
 
 .main_content .header{
-    padding:20px;
+    padding:1.5rem;
     background: #fff ;
     color: #717171;
     border-bottom: 1px solid #e0e4e8 ;
