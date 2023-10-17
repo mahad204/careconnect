@@ -37,16 +37,6 @@ session_start();
                 <a class="nav-link <?php echo isset($_GET['page']) && $_GET['page'] === 'about' ? 'active' : ''; ?>"
                    href="about.php">About</a>
             </li>
-            <?php
-            if(!isset($_SESSION['patient_email_address'])){
-              echo "";
-              }else {
-                echo "
-              <li class='nav-item'>
-                  <a class='nav-link' href=''>Book Appointment</a>
-              </li>";
-              }
-            ?>
           </ul>
           <ul class="navbar-nav ml-auto">
             <?php 

@@ -15,11 +15,11 @@ if (isset($_POST['make_sched'])) {
     $sched_end_time=$_POST['end_time'];
     $averageTime=$_POST['avgTime'];
 
-    $select_query="Select * from `doctor_schedule_table` where doctor_schedule_start_time = '$sched_start_time'";
+    $select_query = "SELECT * FROM `doctor_schedule_table` WHERE doctor_id = '$select_doc' AND doctor_schedule_date = '$sched_date'";   
     $result=mysqli_query($conn, $select_query);
     $number=mysqli_num_rows($result);
     if ($number > 0) {
-      echo "<script> alert('Time is booked')</script>";
+      echo "<script> alert('Day has already been scheduled')</script>";
     } else {
       // Insert data into the doctors_list table
       $sql = "INSERT INTO `doctor_schedule_table` (doctor_id, doctor_schedule_date, doctor_schedule_start_time, doctor_schedule_end_time, average_consulting_time) VALUES ('$select_doc', '$sched_date', '$sched_start_time', '$sched_end_time', '$averageTime')";
@@ -128,7 +128,7 @@ if (isset($_POST['make_sched'])) {
                                 <div class="dataTables_wrapper dt-bootstrap5 no-footer">
                                     <div class="row">
                                         <div class="col-sm-12 col-md-6">
-                                            <div class="dataTables_filter">
+                                            <div class="dataTables_filter float-end">
                                                 <label for="">
                                                     Search
                                                     <input type="search" class="form-control form-control-sm" placeholder aria-control="doctor_schedule_table">

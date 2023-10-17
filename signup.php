@@ -119,6 +119,7 @@ session_start();
         } else {
 			//insert query
             $_SESSION['patient_email_address']=$user_email;
+            $_SESSION['patient_id']=$row_data['patient_id'];
             $_SESSION['patient_name']=$row_data['patient_first_name'];
             $_SESSION['patient_contact']=$row_data['patient_phone_no'];
             $_SESSION['patient_address']=$row_data['patient_address'];

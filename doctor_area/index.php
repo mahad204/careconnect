@@ -1,8 +1,8 @@
 <?php 
 session_start();
-if (!isset($_SESSION['admin_email_address'])) {
-  // If the admin is not logged in, show the login page
-  include('admin_login.php');
+if (!isset($_SESSION['doc_email'])) {
+  // If the doc is not logged in, show the login page
+  include('doctor_login.php');
   exit; // Stop executing further code
 }
 ?>
@@ -11,11 +11,11 @@ if (!isset($_SESSION['admin_email_address'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard </title>
+    <title>Doctor Dashboard </title>
     <!-- Bootstrap ccs link-->
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
      <!-- Css -->
-    <link rel="stylesheet" href="./styles6.css">
+    <link rel="stylesheet" href="dstyle.css">
         <!-- font awesome Link-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -25,7 +25,7 @@ if (!isset($_SESSION['admin_email_address'])) {
     <!-- First Child -->
     <nav class="navbar navbar-expand-lg fxit" style="background-color: #4b4276;">
       <div class="container-fluid">
-        <div class="admin-logo">
+        <div class="doc-logo">
           <span class="fa fa-laptop-medical"></span>
           <large><b>Clinic Appointment System</b></large>
         </div>
@@ -34,16 +34,16 @@ if (!isset($_SESSION['admin_email_address'])) {
           </ul>
           <ul class="navbar-nav ml-auto">
             <?php 
-            if(isset($_SESSION['admin_name'])){
+            if(isset($_SESSION['doc_name'])){
       
                 echo " <li class='nav-item'>
-                  <a class='nav-link' href='admin_logout.php'>".$_SESSION['admin_name']."<i class='fa fa-power-off'></i></a>
+                  <a class='nav-link' href='doctor_logout.php'>".$_SESSION['doc_name']."<i class='fa fa-power-off'></i></a>
               </li>";
               }
               ?>
 
             <!-- <li class="nav-item">
-              <a class="nav-link" href="admin_logout.php" class="text-white">Administrator<i class="fa fa-power-off"></i></a>
+              <a class="nav-link" href="doc_logout.php" class="text-white">docistrator<i class="fa fa-power-off"></i></a>
             </li> -->
           </ul>
         </div>
@@ -62,11 +62,8 @@ if (!isset($_SESSION['admin_email_address'])) {
             <ul>
               <li><a href="index.php?page=home" class="nav-item nav-home"><span class='icon-field'><i class="fa fa-home"></i></span> Home</a></li>
               <li><a href="index.php?page=appointments" class="nav-item nav-appointments"><span class='icon-field'><i class="fa fa-calendar"></i></span> Appointments</a></li>
-              <li><a href="index.php?page=doctors" class="nav-item nav-doctors"><span class='icon-field'><i class="fa fa-user-md"></i></span> Doctors</a></li>
-              <li><a href="index.php?page=med_category" class="nav-item nav-categories"><span class='icon-field'><i class="fa fa-book-medical"></i></span> Medical Specialties</a></li>
               <li><a href="index.php?page=doctor_schedule"  class="nav-item nav-users"><span class='icon-field'><i class="fas fa-user-clock"></i></span> Doctor Schedule</a></li>
-              <li><a href="index.php?page=patients" class="nav-item nav-users"><span class='icon-field'><i class="fa fa-users"></i></span> Patients</a></li>
-              <li> <a href="index.php?page=site_settings" class="nav-item nav-site_settings"><span class='icon-field'><i class="fa fa-cog"></i></span> Site Settings</a></li>
+              <li> <a href="index.php?page=profile" class="nav-item nav-site_settings"><span class='icon-field'><i class="fa fa-cog"></i></span> Profile</a></li>
             </ul>
           </div>
         </div>
@@ -76,30 +73,23 @@ if (!isset($_SESSION['admin_email_address'])) {
       <div class="col-md-9 col">
         <div class="main_content">
             <div class="header med_category">
-              Welcome Back Administrator
+              Welcome Back Doctor
             </div>
         </div>
         <div class="container p-3">
           <?php
-          if (isset($_GET['page']) && $_GET['page'] === 'med_category') {
-            echo '<style>.main_content .header.med_category { display: none; }</style>';
-            include('med_categories.php');
-          }
-          if (isset($_GET['page']) && $_GET['page'] === 'doctors') {
-            echo '<style>.main_content .header.med_category { display: none; }</style>';
-            include('doc-list.php');
-          }
-          if (isset($_GET['page']) && $_GET['page'] === 'patients') {
-            echo '<style>.main_content .header.med_category { display: none; }</style>';
-            include('patient_list.php');
-          }
+
           if (isset($_GET['page']) && $_GET['page'] === 'appointments') {
             echo '<style>.main_content .header.med_category { display: none; }</style>';
-            include('appoint_list.php');
+            include('doc_appointment.php');
           }
           if (isset($_GET['page']) && $_GET['page'] === 'doctor_schedule') {
             echo '<style>.main_content .header.med_category { display: none; }</style>';
-            include('doctor_schedule.php');
+            include('doc_schedule.php');
+          }
+          if (isset($_GET['page']) && $_GET['page'] === 'profile') {
+            echo '<style>.main_content .header.med_category { display: none; }</style>';
+            include('doc_profile.php');
           }
           ?>
         </div>

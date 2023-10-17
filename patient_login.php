@@ -32,6 +32,7 @@ ini_set('display_errors', 1);
             </div>
             <button type="submit" name="user_login">Login</button>
             <p>Dont have an account?<a href="signup.php">Signup</a></p>
+            <p>Sign in as a <a href="doctor_area/doctor_login.php">Doctor</a></p>
         </form>
     </div>
 <!-- Bootstrap js link-->
@@ -50,12 +51,14 @@ if (isset($_POST['user_login'])) {
 
     if ($number>0) {
         $_SESSION['patient_email_address']=$user_email;
+        $_SESSION['patient_id']=$row_data['patient_id'];
         $_SESSION['patient_name']=$row_data['patient_first_name'];
         $_SESSION['patient_contact']=$row_data['patient_phone_no'];
         $_SESSION['patient_address']=$row_data['patient_address'];
         $_SESSION['patient_password']=$row_data['patient_password'];
         $_SESSION['patient_birth']=$row_data['patient_date_of_birth'];
         $_SESSION['patient_maritial']=$row_data['patient_maritial_status'];
+        var_dump($_SESSION);
         if (password_verify($user_password, $row_data['patient_password'])) {
             // echo "<script>alert('Login successful')</script>";
             if ($number==1) {
